@@ -12,13 +12,11 @@
   border-radius: 10px;
   width: 400px;
   max-width: 90%;
-
 }
 
 footer{
   position: fixed;
-  bottom: 5px;
-  
+  bottom: 5px;  
 }
 
 footer a{
@@ -87,4 +85,61 @@ footer a{
 .createNewBtn:hover, footer a:hover{
   color:rgb(150, 204, 248) ;
   border-color: rgb(150, 204, 248);
+}
+
+.mainWrap{
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
+}
+
+.aside{
+  background: #1a1d2a;
+  padding: 16px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.asideInner{
+  flex:1;
+}
+
+.clientsList{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.client{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.userName{
+  margin-top: 10px;
+}
+
+.logo{
+  border-bottom: 1px solid azure;
+  padding-bottom: 10px;
+}
+
+.logoImage{
+  height: 88px;
+}
+
+.leaveBtn{
+  background: rgb(95, 179, 248);
+  /* width: 100px; */
+  font-weight: bold;
+  margin-top: 20px;
+}
+.leaveBtn:hover{
+  background:rgb(195, 65, 50) ;
 }

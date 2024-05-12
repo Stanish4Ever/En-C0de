@@ -23,14 +23,13 @@ function App() {
             },
           }
         }
-            // Define default options
-            
+        
         />
       </div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
-          <Route path="api/editor/:room" element={<EditorPage />}></Route>
+          <Route path="/api/editor/:room" element={<EditorPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
