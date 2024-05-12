@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import EditorPage from './pages/editorPage';
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <Toaster position='top-center' toastOptions={
+          {
+            success: {
+              duration: 3000,
+              theme: {
+                primary: 'blue',
+                secondary: 'black',
+              },
+            },
+            style: {
+              background: '#1a1d2a',
+              color: '#fff',
+            },
+          }
+        }
+            // Define default options
+            
+        />
+      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="api/editor/:room" element={<EditorPage />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
