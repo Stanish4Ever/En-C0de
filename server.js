@@ -6,9 +6,14 @@ const {Server} = require('socket.io');
 const ACTIONS = require('./src/Actions');
 
 const io= new Server(server);
-const userSocketMap={
+const userSocketMap={};
 
-};
+app.use(express.static('build'));
+app.use((req,res,next)=>{
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+
+})
+
 function getAllConnectedClients(roomId) {
     // Map
     return Array.from(io.sockets.adapter.rooms.get(roomId) || []).map(
