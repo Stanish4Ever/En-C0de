@@ -29,7 +29,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/api/editor/:room" element={<EditorPage />}></Route>
+          <Route path="/api/editor/:roomId" element={<EditorPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
