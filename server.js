@@ -7,6 +7,7 @@ const ACTIONS = require('./src/Actions');
 
 const io= new Server(server);
 const userSocketMap={};
+const roomCodeMap = {};
 
 app.use(express.static('build'));
 app.use((req,res,next)=>{
@@ -47,10 +48,15 @@ io.on('connection', (socket) => {
                 socketId: socket.id,
             });
         });
+
+        if (roomCodeMap[roomId]) {
+            socket.emit(ACTIONS.CODE_CHANGE, { code: roomCodeMap[roomId] });
+        }
     });
 
     socket.on(ACTIONS.CODE_CHANGE, ({roomId, code}) =>{
         console.log('receiving', code);
+        roomCodeMap[roomId] = code;
         socket.in(roomId).emit(ACTIONS.CODE_CHANGE, {
             code
         })
