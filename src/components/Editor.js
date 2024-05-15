@@ -45,7 +45,7 @@ const Editor = ({ socketRef, roomId }) => {
     const handleJoined = ({ clients, username, socketId }) => {
       if (username !== null) {
         toast.success(`${username} joined the room.`);
-        console.log(`${username} joined`);
+        // console.log(`${username} joined`);
       }
       setClients(clients);
     };

@@ -14,7 +14,7 @@ const EditorPage = () => {
     const reactNavigator = useNavigate();
 
     const handleErrors = (e) => {
-        console.log('Socket Error', e);
+        // console.log('Socket Error', e);
         toast.error('Socket connection failed, try again later');
         reactNavigator('/');
     };
@@ -26,7 +26,7 @@ const EditorPage = () => {
                 socketRef.current.on('connect_error', handleErrors);
                 socketRef.current.on('connect_failed', handleErrors);
 
-                console.log(`${roomId} is working`);
+                // console.log(`${roomId} is working`);
                 socketRef.current.emit(ACTIONS.JOIN, {
                     roomId,
                     username: location.state?.username,
@@ -35,7 +35,7 @@ const EditorPage = () => {
                 const handleJoined = ({ clients, username }) => {
                     if (username !== location.state?.username) {
                         toast.success(`${username} joined the room.`);
-                        console.log(`${username} joined`);
+                        // console.log(`${username} joined`);
                     }
                     setClients(clients);
                 };
@@ -72,7 +72,7 @@ const EditorPage = () => {
             toast.success("Room ID has been copied");
         } catch (e) {
             toast.error("Could not copy the room id");
-            console.log(e);
+            // console.log(e);
         }
     };
 

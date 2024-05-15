@@ -28,17 +28,17 @@ function getAllConnectedClients(roomId) {
     
 }
 io.on('connection', (socket) => {
-    console.log('socket connected', socket.id);
+    // console.log('socket connected', socket.id);
 
     socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
-        console.log("Socket on ACTIONS.JOIN");
+        // console.log("Socket on ACTIONS.JOIN");
         userSocketMap[socket.id] = username;
-        console.log("User Socket Map after");
+        // console.log("User Socket Map after");
         socket.join(roomId);
-        console.log("User Socket Map after");
-        console.log("Before Clients Call ");
+        // console.log("User Socket Map after");
+        // console.log("Before Clients Call ");
         const clients = getAllConnectedClients(roomId);
-        console.log("This one : ", clients);
+        // console.log("This one : ", clients);
         // console.log("That one :", clients.socketId);
         clients.forEach(({ socketId }) => {
             // console.log(socketId);
